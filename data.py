@@ -23,12 +23,10 @@ data_json = "data/carddata.json"
 def load_data():
     try:
         req.urlretrieve(data_url, data_tsv)
-        df_temp = pd.read_csv(data_tsv, sep="\t")
         print("downloaded tsv")
-        df_temp.to_json(data_json)
     finally:
-        df = pd.read_json(data_json)
-        print("read json")
+        df = pd.read_csv(data_tsv, sep="\t", error_bad_lines=False)
+        print("read tsv")
     return df
 
 # todo: make this work with more than one query at a time... or don't we'll see

@@ -32,10 +32,14 @@ def card_embed(card):
     embed.add_field(name="Range", value=card["Range"], inline=True)
     embed.add_field(name="Class", value=card["Class"], inline=True)
     embed.add_field(name="Type", value=card["Type"], inline=False)
-    embed.add_field(name="Skill #1", value=card["Skill#1"], inline=False)
-    embed.add_field(name="Skill #2", value=card["Skill#2"], inline=False)
-    embed.add_field(name="Skill #3", value=card["Skill#3"], inline=False)
-    embed.add_field(name="Support Skill", value=card["Skill#4"], inline=False)
+    if card["Skill#1"] != "-":
+        embed.add_field(name="Skill #1", value=card["Skill#1"], inline=False)
+    if card["Skill#2"] != "-":
+        embed.add_field(name="Skill #2", value=card["Skill#2"], inline=False)
+    if card["Skill#3"] != "-":
+        embed.add_field(name="Skill #3", value=card["Skill#3"], inline=False)
+    if card["Skill#4"] != "-":
+        embed.add_field(name="Support Skill", value=card["Skill#4"], inline=False)
     return embed
 
 
